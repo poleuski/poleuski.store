@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>poleuski.store | Custom Προϊόντα</title>
+<meta name="description" content="Εξατομικευμένα ρούχα, εμφανίσεις ποδοσφαίρου, διαφημιστικά είδη και ντύσιμο αυτοκινήτων.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<style>
+:root{--bg:#f6f4ef;--text:#171717;--muted:#666;--card:#fff;--border:#e4e0d8;--accent:#111}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;text-align:center}
+header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+.nav{max-width:1150px;margin:auto;padding:16px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;justify-content:center}
+.brand-logo{width:64px;height:64px;object-fit:contain}
+.nav nav{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:18px}
+.nav a{color:#111;text-decoration:none;font-weight:800;font-size:14px;margin:0}
+.hero{max-width:1150px;margin:30px auto 0;min-height:540px;padding:80px 24px;display:flex;align-items:center;justify-content:center;border-radius:32px;overflow:hidden;background:linear-gradient(rgba(0,0,0,.36),rgba(0,0,0,.62)),url('assets/hero-products.png');background-size:cover;background-position:center;color:#fff;box-shadow:0 18px 40px rgba(0,0,0,.16)}
+.hero-content{max-width:760px;margin:auto;display:flex;flex-direction:column;align-items:center}
+h1{font-size:clamp(38px,6vw,72px);line-height:.95;letter-spacing:-2px;margin:0 0 18px;text-shadow:0 3px 16px rgba(0,0,0,.45)}
+.hero p{color:#f1f1f1;font-size:18px;max-width:720px;margin:0 auto 28px;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:900;padding:14px 22px;border-radius:999px;width:fit-content;transition:.2s ease}
+.btn:hover{transform:translateY(-1px);background:#333}
+section{max-width:1150px;margin:auto;padding:48px 20px}
+.section-title{max-width:760px;margin:0 auto 28px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px}
+.section-title h2{font-size:36px;margin:0;letter-spacing:-1px}
+.section-title p{margin:0;color:var(--muted);max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;justify-content:center}
+.card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 28px rgba(0,0,0,.04);text-align:center}
+.card img{width:100%;height:230px;object-fit:cover;display:block;background:#eee}
+.content{padding:22px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;flex:1}
+.tag{font-size:13px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.8px}
+h3{font-size:24px;margin:12px 0 10px}
+.card p{color:var(--muted);margin:0 0 20px}
+.wide{grid-column:span 2}
+.dark{background:#171717;color:#fff;border-color:#171717}
+.dark p,.dark .tag{color:#cfcfcf}.dark .btn{background:#fff;color:#111}
+.promo-art{height:230px;width:100%;background:radial-gradient(circle at 20% 20%, #ffe2a6 0 10%, transparent 11%),radial-gradient(circle at 82% 28%, #cfe8ff 0 12%, transparent 13%),linear-gradient(135deg,#fff7e8,#ece7dc);display:grid;place-items:center;padding:20px}
+.promo-inner{width:100%;max-width:330px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:center}
+.promo-item{background:#fff;border:1px solid #ddd;border-radius:18px;padding:18px 10px;font-size:34px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+footer{margin-top:50px;background:#111;color:#fff}
+.footer{max-width:1150px;margin:auto;padding:34px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}
+footer a{color:#fff;text-decoration:none;font-weight:800;margin:0 8px}
+.small{color:#cfcfcf;font-size:14px;margin-top:8px;max-width:680px}
+@media(max-width:850px){
+.nav{padding:14px 16px}.brand-logo{width:52px;height:52px}.nav nav{gap:14px}.nav a{font-size:13px}
+.hero{margin:18px 14px 0;min-height:440px;padding:55px 18px;border-radius:24px}
+h1{font-size:40px;letter-spacing:-1.2px}.hero p{font-size:16px}
+section{padding:34px 16px}.section-title h2{font-size:30px}.grid{grid-template-columns:1fr}.wide{grid-column:span 1}
+.card img,.promo-art{height:220px}.btn{width:100%;max-width:310px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img class="brand-logo" src="assets/logo.png" alt="poleuski.store logo" onerror="this.style.display='none'">
+    </div>
+    <nav>
+      <a href="#products">Προϊόντα</a>
+      <a href="#services">Υπηρεσίες</a>
+      <a href="https://tally.so/r/mVKAyN">Επικοινωνία</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Πακέτο διαφημιστικών ειδών</h1>
+    <p>Λάβε προσφορά για ολοκληρωμένα διαφημιστικά προϊόντα προσαρμοσμένα στην επιχείρησή σου.</p>
+    <a class="btn" href="https://tally.so/r/mVKAyN">Λάβε προσφορά</a>
+  </div>
+</section>
+
+<section id="products">
+  <div class="section-title">
+    <h2>Προϊόντα ένδυσης</h2>
+    <p>Επιλέξτε το προϊόν που σας ενδιαφέρει και συμπληρώστε τη φόρμα εξατομίκευσης.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><img src="assets/tshirt.png" loading="lazy" alt="Custom T-shirt"><div class="content"><div><span class="tag">Ρούχο</span><h3>T-shirt</h3><p>Custom t-shirt με στάμπα, λογότυπο ή σχέδιο της επιλογής σας.</p></div><a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a></div></article>
+    <article class="card"><img src="assets/polo.png" loading="lazy" alt="Custom Polo"><div class="content"><div><span class="tag">Ρούχο</span><h3>Polo</h3><p>Ιδανικό για επαγγελματική χρήση, ομάδες και εταιρική ταυτότητα.</p></div><a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a></div></article>
+    <article class="card"><img src="assets/sweatshirt.png" loading="lazy" alt="Φούτερ"><div class="content"><div><span class="tag">Ρούχο</span><h3>Φούτερ</h3><p>Minimal επιλογή για custom συλλογές, ομάδες ή επιχειρήσεις.</p></div><a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a></div></article>
+    <article class="card"><img src="assets/zipped-hoodie.jpg" loading="lazy" alt="Ζακέτα"><div class="content"><div><span class="tag">Ρούχο</span><h3>Ζακέτα</h3><p>Προσωποποιημένη ζακέτα για επαγγελματική ή casual χρήση.</p></div><a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a></div></article>
+    <article class="card dark"><img src="assets/football.jpg" loading="lazy" alt="Εμφάνιση ποδοσφαίρου"><div class="content"><div><span class="tag">Ομάδες</span><h3>Εμφάνιση ποδοσφαίρου</h3><p>Custom εμφάνιση για ομάδα, σχολή, ακαδημία ή event.</p></div><a class="btn" href="https://tally.so/r/3jYEOE">Εξατομίκευση τώρα!</a></div></article>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title">
+    <h2>Επιπλέον υπηρεσίες</h2>
+    <p>Αναλαμβάνουμε εφαρμογές οχημάτων και ολοκληρωμένα πακέτα διαφημιστικών ειδών.</p>
+  </div>
+  <div class="grid">
+    <article class="card wide dark"><img src="assets/car-wrap.jpeg" loading="lazy" alt="Ντύσιμο αυτοκινήτων"><div class="content"><div><span class="tag">Αυτοκίνητο</span><h3>Ντύσιμο αυτοκινήτων</h3><p>Εφαρμογές αυτοκόλλητων, επαγγελματική προβολή και custom αισθητική για αυτοκίνητα.</p></div><a class="btn" href="https://tally.so/r/KYMqZ8">Εξατομίκευση τώρα!</a></div></article>
+    <article class="card">
+      <div class="promo-art" aria-label="Πακέτο διαφημιστικών ειδών">
+        <div class="promo-inner">
+          <div class="promo-item">🚗</div>
+          <div class="promo-item">🚩</div>
+          <div class="promo-item">💳</div>
+          <div class="promo-item">👕</div>
+          <div class="promo-item">🧢</div>
+        </div>
+      </div>
+      <div class="content">
+        <div><span class="tag">Επιχειρήσεις</span><h3>Πακέτο διαφημιστικών ειδών</h3><p>Συνδυασμός προϊόντων με λογότυπο για επιχειρήσεις, events, δώρα και προωθητικές ενέργειες.</p></div>
+        <a class="btn" href="https://tally.so/r/mVKAyN">Επικοινωνία</a>
+      </div>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer">
+    <div>
+      <strong>poleuski.store</strong>
+      <div class="small">Εξατομικευμένα ρούχα, εμφανίσεις, διαφημιστικά είδη και εφαρμογές οχημάτων για κάθε ανάγκη.</div>
+    </div>
+    <div>
+      <a href="https://tally.so/r/mVKAyN">Επικοινωνία</a>
+      <a href="https://tally.so/r/3q9MNk">Πολιτική Απορρήτου</a>
+      <a href="https://tally.so/r/3xA1lJ">Όροι Χρήσης</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
