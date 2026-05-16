@@ -182,10 +182,18 @@ section{
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+  display:flex;
   gap:18px;
-  justify-content:center;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  padding:10px 4px 24px;
+  scrollbar-width:thin;
+}
+
+.card{
+  min-width:320px;
+  max-width:320px;
+  scroll-snap-align:start;
 }
 
 .card{
@@ -317,9 +325,17 @@ footer a{
     font-size:30px;
   }
 
-  .grid{
-    grid-template-columns:1fr;
-  }
+.grid{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  gap:16px;
+}
+
+.card{
+  min-width:86%;
+  max-width:86%;
+}
 
   .card img{
     height:220px;
