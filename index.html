@@ -4,134 +4,533 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DP | Διαφημιστικά & Branding</title>
-<meta name="description" content="Εξατομικευμένα ρούχα, εμφανίσεις ποδοσφαίρου, διαφημιστικά είδη και ντύσιμο αυτοκινήτων.">
+<meta name="description" content="Οικοδομικά και εργοταξιακά προϊόντα, εκτυπώσιμα, ένδυση και διαφημιστικές εφαρμογές για επιχειρήσεις.">
+
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
+
+<link rel="preload" as="image" href="assets/banner.webp">
+
 <style>
-:root{--bg:#f6f4ef;--text:#171717;--muted:#666;--card:#fff;--border:#e4e0d8;--accent:#111}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;text-align:center}
-header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
-.nav{max-width:1150px;margin:auto;padding:16px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px}
-.brand{display:flex;align-items:center;justify-content:center}
-.brand-logo{width:64px;height:64px;object-fit:contain}
-.nav nav{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:18px}
-.nav a{color:#111;text-decoration:none;font-weight:800;font-size:14px;margin:0}
-.hero{max-width:1150px;margin:30px auto 0;min-height:540px;padding:80px 24px;display:flex;align-items:center;justify-content:center;border-radius:32px;overflow:hidden;background:linear-gradient(rgba(0,0,0,.36),rgba(0,0,0,.62)),url('assets/banner.png');background-size:cover;background-position:center;color:#fff;box-shadow:0 18px 40px rgba(0,0,0,.16)}
-.hero-content{max-width:760px;margin:auto;display:flex;flex-direction:column;align-items:center}
-h1{font-size:clamp(38px,6vw,72px);line-height:.95;letter-spacing:-2px;margin:0 0 18px;text-shadow:0 3px 16px rgba(0,0,0,.45)}
-.hero p{color:#f1f1f1;font-size:18px;max-width:720px;margin:0 auto 28px;text-shadow:0 2px 10px rgba(0,0,0,.35)}
-.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:900;padding:14px 22px;border-radius:999px;width:fit-content;transition:.2s ease}
-.btn:hover{transform:translateY(-1px);background:#333}
-section{max-width:1150px;margin:auto;padding:48px 20px}
-.section-title{max-width:760px;margin:0 auto 28px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px}
-.section-title h2{font-size:36px;margin:0;letter-spacing:-1px}
-.section-title p{margin:0;color:var(--muted);max-width:640px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;justify-content:center}
-.card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 28px rgba(0,0,0,.04);text-align:center}
-.card img{width:100%;height:230px;object-fit:cover;display:block;background:#eee}
-.content{padding:22px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;flex:1}
-.tag{font-size:13px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.8px}
-h3{font-size:24px;margin:12px 0 10px}
-.card p{color:var(--muted);margin:0 0 20px}
-.wide{grid-column:span 2}
-.dark{background:#171717;color:#fff;border-color:#171717}
-.dark p,.dark .tag{color:#cfcfcf}.dark .btn{background:#fff;color:#111}
-.promo-art{height:230px;width:100%;background:radial-gradient(circle at 20% 20%, #ffe2a6 0 10%, transparent 11%),radial-gradient(circle at 82% 28%, #cfe8ff 0 12%, transparent 13%),linear-gradient(135deg,#fff7e8,#ece7dc);display:grid;place-items:center;padding:20px}
-.promo-inner{width:100%;max-width:330px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:center}
-.promo-item{background:#fff;border:1px solid #ddd;border-radius:18px;padding:18px 10px;font-size:34px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
-footer{margin-top:50px;background:#111;color:#fff}
-.footer{max-width:1150px;margin:auto;padding:34px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}
-footer a{color:#fff;text-decoration:none;font-weight:800;margin:0 8px}
-.small{color:#cfcfcf;font-size:14px;margin-top:8px;max-width:680px}
+:root{
+  --bg:#f6f4ef;
+  --text:#171717;
+  --muted:#666;
+  --card:#fff;
+  --border:#e4e0d8;
+  --accent:#111;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  text-align:center;
+  text-rendering:optimizeSpeed;
+  -webkit-font-smoothing:antialiased;
+}
+
+header{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.nav{
+  max-width:1150px;
+  margin:auto;
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.brand-logo{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+}
+
+.nav nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:18px;
+}
+
+.nav a{
+  color:#111;
+  text-decoration:none;
+  font-weight:800;
+  font-size:14px;
+}
+
+.nav a.contact-link{
+  background:#111;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:999px;
+}
+
+.hero{
+  max-width:1150px;
+  margin:30px auto 0;
+  min-height:540px;
+  padding:80px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:32px;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(0,0,0,.36),rgba(0,0,0,.62)),
+    url('assets/banner.webp');
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  box-shadow:0 18px 40px rgba(0,0,0,.16);
+}
+
+.hero-content{
+  max-width:760px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+h1{
+  font-size:clamp(38px,6vw,72px);
+  line-height:.95;
+  letter-spacing:-2px;
+  margin:0 0 18px;
+  text-shadow:0 3px 16px rgba(0,0,0,.45);
+}
+
+.hero p{
+  color:#f1f1f1;
+  font-size:18px;
+  max-width:720px;
+  margin:0 auto 28px;
+  text-shadow:0 2px 10px rgba(0,0,0,.35);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  font-weight:900;
+  padding:14px 22px;
+  border-radius:999px;
+  width:fit-content;
+  transition:.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  background:#333;
+}
+
+section{
+  max-width:1150px;
+  margin:auto;
+  padding:48px 20px;
+  content-visibility:auto;
+  contain-intrinsic-size:1px 1000px;
+}
+
+.section-title{
+  max-width:760px;
+  margin:0 auto 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
+.section-title h2{
+  font-size:36px;
+  margin:0;
+  letter-spacing:-1px;
+}
+
+.section-title p{
+  margin:0;
+  color:var(--muted);
+  max-width:640px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  justify-content:center;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  overflow:hidden;
+  min-height:380px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 10px 28px rgba(0,0,0,.04);
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
+  background:#eee;
+}
+
+.content{
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  flex:1;
+}
+
+.tag{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+
+h3{
+  font-size:24px;
+  margin:12px 0 10px;
+}
+
+.card p{
+  color:var(--muted);
+  margin:0 0 20px;
+}
+
+footer{
+  margin-top:50px;
+  background:#111;
+  color:#fff;
+}
+
+.footer{
+  max-width:1150px;
+  margin:auto;
+  padding:34px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  text-align:center;
+}
+
+footer a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  margin:0 8px;
+}
+
+.small{
+  color:#cfcfcf;
+  font-size:14px;
+  margin-top:8px;
+  max-width:680px;
+}
+
 @media(max-width:850px){
-.nav{padding:14px 16px}.brand-logo{width:52px;height:52px}.nav nav{gap:14px}.nav a{font-size:13px}
-.hero{margin:18px 14px 0;min-height:440px;padding:55px 18px;border-radius:24px}
-h1{font-size:40px;letter-spacing:-1.2px}.hero p{font-size:16px}
-section{padding:34px 16px}.section-title h2{font-size:30px}.grid{grid-template-columns:1fr}.wide{grid-column:span 1}
-.card img,.promo-art{height:220px}.btn{width:100%;max-width:310px}
+  .nav{
+    padding:14px 16px;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  .brand-logo{
+    width:52px;
+    height:52px;
+  }
+
+  .nav nav{
+    gap:12px;
+  }
+
+  .nav a{
+    font-size:13px;
+  }
+
+  .nav a.contact-link{
+    padding:9px 14px;
+  }
+
+  .hero{
+    margin:18px 14px 0;
+    min-height:440px;
+    padding:55px 18px;
+    border-radius:24px;
+  }
+
+  h1{
+    font-size:40px;
+    letter-spacing:-1.2px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  section{
+    padding:34px 16px;
+    contain-intrinsic-size:1px 1200px;
+  }
+
+  .section-title h2{
+    font-size:30px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .card img{
+    height:220px;
+  }
+
+  .btn{
+    width:100%;
+    max-width:310px;
+  }
 }
 </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17146255995"></script>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17146255995"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
-
 gtag('js', new Date());
 gtag('config', 'AW-17146255995');
 </script>
 </head>
+
 <body>
+
 <header>
   <div class="nav">
     <div class="brand">
-      <img class="brand-logo" src="assets/logo.png" alt="poleuski.store logo" onerror="this.style.display='none'">
+      <img 
+        class="brand-logo" 
+        src="assets/logo.webp" 
+        width="64" 
+        height="64" 
+        alt="poleuski.store logo" 
+        decoding="async"
+        onerror="this.style.display='none'"
+      >
     </div>
+
     <nav>
-      <a href="#products">Προϊόντα</a>
-      <a href="#services">Υπηρεσίες</a>
-      <a href="https://tally.so/r/mVKAyN">Επικοινωνία</a>
+      <a href="#construction">Οικοδομικά & Εργοταξιακά</a>
+      <a href="#printables">Εκτυπώσιμα</a>
+      <a href="#apparel">Ένδυση</a>
+      <a class="contact-link" href="https://tally.so/r/mVKAyN">Επικοινωνία</a>
     </nav>
   </div>
 </header>
 
 <main>
-<section class="hero">
-  <div class="hero-content">
-    <h1>Πακέτο διαφημιστικών ειδών</h1>
-    <p>Λάβε προσφορά για ολοκληρωμένα διαφημιστικά προϊόντα προσαρμοσμένα στην επιχείρησή σου.</p>
-    <a class="btn" href="https://tally.so/r/mVKAyN">Λάβε προσφορά</a>
-  </div>
-</section>
 
-<section id="products">
+<section id="construction">
   <div class="section-title">
-    <h2>Προϊόντα ένδυσης</h2>
-    <p>Επιλέξτε το προϊόν που σας ενδιαφέρει και συμπληρώστε τη φόρμα εξατομίκευσης.</p>
+    <h2>Οικοδομικά & Εργοταξιακά</h2>
+    <p>Προϊόντα προβολής και επαγγελματικής χρήσης για εργοτάξια και οικοδομές.</p>
   </div>
-  <div class="grid">
-    <article class="card"><img src="assets/tshirt.png" loading="lazy" alt="Custom T-shirt"><div class="content"><div><span class="tag">Ρούχο</span><h3>T-shirt</h3><p>Custom t-shirt με στάμπα, λογότυπο ή σχέδιο της επιλογής σας.</p></div><a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a></div></article>
-    <article class="card"><img src="assets/polo.png" loading="lazy" alt="Custom Polo"><div class="content"><div><span class="tag">Ρούχο</span><h3>Polo</h3><p>Ιδανικό για επαγγελματική χρήση, ομάδες και εταιρική ταυτότητα.</p></div><a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a></div></article>
-    <article class="card"><img src="assets/sweatshirt.png" loading="lazy" alt="Φούτερ"><div class="content"><div><span class="tag">Ρούχο</span><h3>Φούτερ</h3><p>Minimal επιλογή για custom συλλογές, ομάδες ή επιχειρήσεις.</p></div><a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a></div></article>
-    <article class="card"><img src="assets/zipped-hoodie.jpg" loading="lazy" alt="Ζακέτα"><div class="content"><div><span class="tag">Ρούχο</span><h3>Ζακέτα</h3><p>Προσωποποιημένη ζακέτα για επαγγελματική ή casual χρήση.</p></div><a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a></div></article>
-    <article class="card dark"><img src="assets/football.jpg" loading="lazy" alt="Εμφάνιση ποδοσφαίρου"><div class="content"><div><span class="tag">Ομάδες</span><h3>Εμφάνιση ποδοσφαίρου</h3><p>Custom εμφάνιση για ομάδα, σχολή, ακαδημία ή event.</p></div><a class="btn" href="https://tally.so/r/3jYEOE">Εξατομίκευση τώρα!</a></div></article>
-  </div>
-</section>
 
-<section id="services">
-  <div class="section-title">
-    <h2>Επιπλέον υπηρεσίες</h2>
-    <p>Αναλαμβάνουμε εφαρμογές οχημάτων και ολοκληρωμένα πακέτα διαφημιστικών ειδών.</p>
-  </div>
   <div class="grid">
-    <article class="card wide dark"><img src="assets/car-wrap.jpeg" loading="lazy" alt="Ντύσιμο αυτοκινήτων"><div class="content"><div><span class="tag">Αυτοκίνητο</span><h3>Ντύσιμο αυτοκινήτων</h3><p>Εφαρμογές αυτοκόλλητων, επαγγελματική προβολή και custom αισθητική για αυτοκίνητα.</p></div><a class="btn" href="https://tally.so/r/KYMqZ8">Εξατομίκευση τώρα!</a></div></article>
     <article class="card">
-      <div class="promo-art" aria-label="Πακέτο διαφημιστικών ειδών">
-        <div class="promo-inner">
-          <div class="promo-item">🚗</div>
-          <div class="promo-item">🚩</div>
-          <div class="promo-item">💳</div>
-          <div class="promo-item">👕</div>
-          <div class="promo-item">🧢</div>
-        </div>
-      </div>
+      <img src="assets/work-vest.webp" width="600" height="400" loading="lazy" decoding="async" alt="Γιλέκο εργασίας">
       <div class="content">
-        <div><span class="tag">Επιχειρήσεις</span><h3>Πακέτο διαφημιστικών ειδών</h3><p>Συνδυασμός προϊόντων με λογότυπο για επιχειρήσεις, events, δώρα και προωθητικές ενέργειες.</p></div>
-        <a class="btn" href="https://tally.so/r/mVKAyN">Επικοινωνία</a>
+        <div>
+          <span class="tag">Εργοτάξιο</span>
+          <h3>Γιλέκο εργασίας</h3>
+          <p>Γιλέκο εργασίας με λογότυπο ή στοιχεία επιχείρησης.</p>
+        </div>
+        <a class="btn" href="https://tally.so/r/Ekvexl">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/work-pants.webp" width="600" height="400" loading="lazy" decoding="async" alt="Παντελόνι εργασίας">
+      <div class="content">
+        <div>
+          <span class="tag">Εργοτάξιο</span>
+          <h3>Παντελόνι εργασίας</h3>
+          <p>Πρακτικό παντελόνι εργασίας για επαγγελματική χρήση.</p>
+        </div>
+        <a class="btn" href="https://tally.so/r/Ekvexl">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/construction-banner.webp" width="600" height="400" loading="lazy" decoding="async" alt="Μουσαμάς εργοταξίου">
+      <div class="content">
+        <div>
+          <span class="tag">Προβολή</span>
+          <h3>Μουσαμάς εργοταξίου</h3>
+          <p>Μουσαμάς για εξωτερική προβολή σε εργοτάξια και οικοδομές.</p>
+        </div>
+        <a class="btn" href="https://tally.so/r/Ekvexl">Εξατομίκευση τώρα!</a>
       </div>
     </article>
   </div>
 </section>
+
+<section id="printables">
+  <div class="section-title">
+    <h2>Εκτυπώσιμα</h2>
+    <p>Επαγγελματικές εκτυπώσεις για επιχειρήσεις, προϊόντα, events και προωθητικές ενέργειες.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <img src="assets/stickers.webp" width="600" height="400" loading="lazy" decoding="async" alt="Αυτοκόλλητα">
+      <div class="content">
+        <div><span class="tag">Εκτύπωση</span><h3>Αυτοκόλλητα</h3><p>Custom αυτοκόλλητα για κάθε χρήση.</p></div>
+        <a class="btn" href="https://tally.so/r/b5KXkZ">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/product-labels.webp" width="600" height="400" loading="lazy" decoding="async" alt="Ετικέτες προϊόντων">
+      <div class="content">
+        <div><span class="tag">Προϊόντα</span><h3>Ετικέτες προϊόντων</h3><p>Ετικέτες για συσκευασίες και προϊόντα.</p></div>
+        <a class="btn" href="https://tally.so/r/b5KXkZ">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/business-cards.webp" width="600" height="400" loading="lazy" decoding="async" alt="Επαγγελματικές κάρτες">
+      <div class="content">
+        <div><span class="tag">Business</span><h3>Επαγγελματικές κάρτες</h3><p>Κάρτες με επαγγελματική αισθητική.</p></div>
+        <a class="btn" href="https://tally.so/r/b5KXkZ">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/flyers.webp" width="600" height="400" loading="lazy" decoding="async" alt="Φυλλάδια">
+      <div class="content">
+        <div><span class="tag">Promo</span><h3>Φυλλάδια</h3><p>Φυλλάδια για προσφορές, events και επιχειρήσεις.</p></div>
+        <a class="btn" href="https://tally.so/r/b5KXkZ">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/posters.webp" width="600" height="400" loading="lazy" decoding="async" alt="Αφίσες">
+      <div class="content">
+        <div><span class="tag">Promo</span><h3>Αφίσες</h3><p>Αφίσες για προβολή, διαφήμιση και εκδηλώσεις.</p></div>
+        <a class="btn" href="https://tally.so/r/b5KXkZ">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/invitations.webp" width="600" height="400" loading="lazy" decoding="async" alt="Προσκλητήρια">
+      <div class="content">
+        <div><span class="tag">Events</span><h3>Προσκλητήρια</h3><p>Προσκλητήρια για γάμους, βαπτίσεις και εκδηλώσεις.</p></div>
+        <a class="btn" href="https://tally.so/r/b5KXkZ">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/menu.webp" width="600" height="400" loading="lazy" decoding="async" alt="Μενού">
+      <div class="content">
+        <div><span class="tag">Εστίαση</span><h3>Μενού</h3><p>Μενού για καφέ, εστιατόρια και χώρους εστίασης.</p></div>
+        <a class="btn" href="https://tally.so/r/b5KXkZ">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="apparel">
+  <div class="section-title">
+    <h2>Ένδυση</h2>
+    <p>Επιλέξτε προϊόν ένδυσης και συμπληρώστε τη φόρμα εξατομίκευσης.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <img src="assets/tshirt.webp" width="600" height="400" loading="lazy" decoding="async" alt="Custom T-shirt">
+      <div class="content">
+        <div><span class="tag">Ρούχο</span><h3>T-shirt</h3><p>Custom t-shirt με στάμπα, λογότυπο ή σχέδιο της επιλογής σας.</p></div>
+        <a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/polo.webp" width="600" height="400" loading="lazy" decoding="async" alt="Custom Polo">
+      <div class="content">
+        <div><span class="tag">Ρούχο</span><h3>Polo</h3><p>Ιδανικό για επαγγελματική χρήση, ομάδες και εταιρική ταυτότητα.</p></div>
+        <a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/sweatshirt.webp" width="600" height="400" loading="lazy" decoding="async" alt="Φούτερ">
+      <div class="content">
+        <div><span class="tag">Ρούχο</span><h3>Φούτερ</h3><p>Minimal επιλογή για custom συλλογές, ομάδες ή επιχειρήσεις.</p></div>
+        <a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="assets/zipped-hoodie.webp" width="600" height="400" loading="lazy" decoding="async" alt="Ζακέτα">
+      <div class="content">
+        <div><span class="tag">Ρούχο</span><h3>Ζακέτα</h3><p>Προσωποποιημένη ζακέτα για επαγγελματική ή casual χρήση.</p></div>
+        <a class="btn" href="https://tally.so/r/np11aq">Εξατομίκευση τώρα!</a>
+      </div>
+    </article>
+  </div>
+</section>
+
 </main>
 
 <footer>
   <div class="footer">
     <div>
       <strong>poleuski.store</strong>
-      <div class="small">Εξατομικευμένα ρούχα, εμφανίσεις, διαφημιστικά είδη και εφαρμογές οχημάτων για κάθε ανάγκη.</div>
+      <div class="small">
+        Οικοδομικά, εργοταξιακά, εκτυπώσιμα, ένδυση και διαφημιστικές λύσεις για κάθε επαγγελματική ανάγκη.
+      </div>
     </div>
+
     <div>
       <a href="https://tally.so/r/mVKAyN">Επικοινωνία</a>
       <a href="https://tally.so/r/3q9MNk">Πολιτική Απορρήτου</a>
@@ -139,5 +538,6 @@ gtag('config', 'AW-17146255995');
     </div>
   </div>
 </footer>
+
 </body>
 </html>
